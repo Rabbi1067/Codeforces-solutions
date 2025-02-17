@@ -2,10 +2,9 @@
 using namespace std;
 int main()
 {
-    int n;
+    long long int n;
     cin>>n;
-    long long int ans=pow(5,n);
-    cout<<ans%100<<endl;
+    cout<<"25"<<endl;// The last two digits of 5^n for n >= 2 are always 25
 
     return 0;
 }
