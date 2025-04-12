@@ -1,38 +1,29 @@
 #include<bits/stdc++.h>
 using namespace std;
-
 int main(){
-  
+    ios::sync_with_stdio(false); 
+    cin.tie(0);
+ 
     int t;
     cin >> t;
-    
-    while(t--){
-        int a, b;
-        cin >> a >> b;
-
-        vector<int> count(a + 1, 0);
-        vector<int> c(b);
-        for (int i = 0; i < b; i++){
-            cin >> c[i];
-            count[c[i]]++;
+    while (t--) {
+        int n, m;
+        cin >> n >> m;
+        vector<int> a(m);
+        for (int i = 0; i < m; ++i) {
+            cin >> a[i];
         }
-
-        vector<int> d(a + 2, 0);
-        for (int i = a; i >= 1; i--){
-            d[i] = count[i] + d[i + 1];
+        sort(a.begin(), a.end());
+        long long int ans = 0;
+        for (int len1 = 1; len1 < n; ++len1) {
+            int len2 = n - len1;
+            int cnt1 = a.end() - lower_bound(a.begin(), a.end(), len1);
+            int cnt2 = a.end() - lower_bound(a.begin(), a.end(), len2);
+            int cnt_both = a.end() - lower_bound(a.begin(), a.end(), max(len1, len2));
+            ans += (long long)cnt1 * cnt2 - cnt_both;
         }
-     
-        long long ans = 0;
-
-        for (int e = 1; e < a; e++){
-            int f = d[e];
-            int g = d[a - e];
-            int h = d[max(e, a - e)];
-            ans += static_cast<long long>(f) * g - h;
-        }
-    
         cout << ans << endl;
     }
-    
+ 
     return 0;
 }
