@@ -1,30 +1,21 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
  
-int main(){
-   
+int main() 
+{
     int t;
-    cin >> t;
-    
+    cin>>t;
     while(t--){
-    
-        long long num, Val;
-        cin >> num >> Val;
-        long long result = 0;
-        
-     
-        if(num % 2 == 0){
-            result = (num + (Val - 1) - 1) / (Val - 1);
-          
-        } else {
-           
-            result = 1 + ((num - Val) + (Val - 1) - 1) / (Val - 1);
-          
-        }
-        
-        cout << result << "\n";
+      int n,m;
+      cin>>n>>m;
+      if(n%2){
+          cout << (n-2)/(m-1)+1 << endl;
+      }
       
+      else{
+        cout << (n+m-2)/(m-1) << endl;
+      }
+        
     }
-    
     return 0;
 }
