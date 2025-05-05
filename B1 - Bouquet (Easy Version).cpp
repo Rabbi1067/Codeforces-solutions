@@ -1,6 +1,9 @@
 #include<bits/stdc++.h>
 using namespace std;
 int main(){
+     ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+    
         int t;
         cin>>t;
         while(t--){
@@ -19,9 +22,7 @@ int main(){
             sum-=f[l];
             l++;
         }
-        if(sum<=m){
             ans=max(ans,sum);
-        }
       }
 
       cout<<ans<<endl;
