@@ -18,14 +18,14 @@ int main(){
       long long l=0,ans=0;
       for(int r=0;r<n;r++){
         sum+=f[r];
-        while(f[r]-f[l]>1|| sum>m){
+        while (l <= r && (f[r] - f[l] > 1 || sum > m)){
             sum-=f[l];
             l++;
         }
             ans=max(ans,sum);
       }
-
+ 
       cout<<ans<<endl;
         }
 }
-
+ 
